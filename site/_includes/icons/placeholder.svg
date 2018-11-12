@@ -1,6 +1,10 @@
 {%- assign width = include.width | default: '100%' -%}
 {%- assign height = include.height | default: '180' -%}
-{%- assign text = include.text | default: width | append: 'x' | append: height -%}
+{%- if include.text -%}
+  {%- assign text = include.text -%}
+{%- else -%}
+  {%- assign text = width | append: 'x' | append: height -%}
+{%- endif -%}
 {%- assign class = include.class | prepend: ' ' -%}
 {%- assign color = include.color | default: '#ddd' -%}
 {%- assign background = include.background | default: '#777' -%}
